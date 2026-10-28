@@ -13,7 +13,8 @@ def key(n):
     return None
 def parse_fb(h):
     t=re.sub(r'<script.*?</script>|<style.*?</style>','',h,flags=re.S);t=re.sub(r'<[^>]+>','|',t);t=H.unescape(re.sub(r'\|[\s|]*','|',t))
-    t=t.split('תוצאות הבחירות|הספירה',1)[1].split('|המדגמים|')[0]
+    t=(t.split('תוצאות הבחירות|הספירה',1)+[t])[1] if 'תוצאות הבחירות|הספירה' in t else t[t.find('נכון ל-'):]
+    t=t.split('|המדגמים|')[0]
     d={'asof':re.search(r'נכון ל-([^.]*?)\s*GMT',t).group(1).strip(),
        'counted':int(re.search(r'קולות שנספרו\|([\d,]+)',t).group(1).replace(',','')),
        'valid':int(re.search(r'קולות כשרים\|([\d,]+)',t).group(1).replace(',',''))}
