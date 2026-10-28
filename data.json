@@ -2,7 +2,7 @@
  "asof": "28 באוק׳, 05:13",
  "counted": 1774362,
  "valid": 1766198,
- "others": 19737,
+ "others": 19740,
  "parties": [
   {
    "name": "הליכוד",
@@ -107,14 +107,6 @@
    "pct": 1.8,
    "seats": 0,
    "bloc": "o"
-  },
-  {
-   "name": "כחול לבן",
-   "id": "bw",
-   "votes": 3,
-   "pct": 0.0,
-   "seats": 0,
-   "bloc": "o"
   }
  ],
  "source": "https://thestateofisrael.com/he/election-2026/results",
@@ -129,5 +121,5 @@
  },
  "eligible": 7331981,
  "pct_counted": 24.2,
- "fetched": "28.10.2026 05:20"
+ "fetched": "28.10.2026 05:45"
 }
