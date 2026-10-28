@@ -51,6 +51,7 @@ def main():
     seats,th=bader_ofer(d['parties'],d['valid'])
     for p in d['parties']:
         p['pct']=round(100*p['votes']/d['valid'],2);p['seats']=seats.get(p['id'],0);p['bloc']=BLOC.get(p['id'],'o')
+    tiny=[p for p in d['parties'] if p['votes']<0.001*d['valid']];d['others']+=sum(p['votes'] for p in tiny);d['parties']=[p for p in d['parties'] if p not in tiny]
     d['parties'].sort(key=lambda p:-p['votes']);d['threshold_votes']=round(th)
     d['blocs']={b:sum(p['seats'] for p in d['parties'] if p['bloc']==b) for b in 'ceao'}
     d['eligible']=7331981  # CEC official figure (verified on votes26.bechirot.gov.il)
