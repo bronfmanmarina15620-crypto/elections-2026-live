@@ -1,0 +1,28 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ספירת הקולות 2026 – חי</title><style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6fa;color:#1a1a2e;text-align:right}
+header{background:#1d3557;color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px}
+header img{width:44px;height:44px;border-radius:50%;background:#fff}h1{font-size:19px;margin:0}
+.w{padding:12px;max-width:640px;margin:auto}.card{background:#fff;border-radius:12px;padding:12px;margin-bottom:12px;box-shadow:0 1px 4px #0002}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:8px}.g div{background:#eef2f8;border-radius:8px;padding:8px}.g b{display:block;font-size:18px}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:6px 4px;border-bottom:1px solid #eee}th{background:#eef2f8}
+td.n{text-align:left;direction:ltr}.th td{border-top:3px dashed #e63946;color:#e63946;font-weight:bold;text-align:center}
+.out{color:#888}.bar{height:22px;background:#eee;border-radius:6px;position:relative;margin:4px 0 10px}.bar i{display:block;height:100%;border-radius:6px}
+.bar s{position:absolute;top:-3px;bottom:-3px;right:50.83%;border-right:2px solid #000}.warn{background:#fff3cd;font-size:13px}small{color:#555}
+</style></head><body><header><img src="logo.png" alt="MARINA"><h1>ספירת הקולות – בחירות 2026</h1></header><div class="w" id="app">טוען…</div>
+<script>
+const B={c:'הקואליציה (ליכוד, ש״ס, יהדות התורה, עוצמה יהודית, הציונות הדתית)',e:'גוש איזנקוט (ישר!, ביחד, ישראל ביתנו, הדמוקרטים)',a:'מפלגות ערביות (המשותפת, רע״ם)'};
+const C={c:'#1d4ed8',e:'#16a34a',a:'#9333ea'};const f=n=>n.toLocaleString('he-IL');
+async function load(){try{const d=await (await fetch('data.json?t='+Date.now())).json();
+let h=`<div class="card warn">⚠️ <b>הערכה מספירה חלקית.</b> המנדטים מחושבים אצלי בשיטת בדר־עופר עם 5 הסכמי העודפים שנחתמו, מתוך הקולות שנספרו עד עכשיו. התוצאה הרשמית רק מוועדת הבחירות (עד 4.11).</div>
+<div class="card g"><div>קולות שנספרו<b>${f(d.counted)}</b></div><div>בעלי זכות בחירה<b>${f(d.eligible)}</b></div>
+<div>נספרו מתוך בעלי זכות בחירה<b>${d.pct_counted}%</b></div><div>עדכון במקור<b>${d.asof}</b></div></div><div class="card"><b>גושים מול 61</b>`;
+for(const k of 'cea'){const s=d.blocs[k];h+=`<div><small>${B[k]}</small> – <b>${s}</b>${s>=61?' ✅':''}</div><div class="bar"><i style="width:${s/120*100}%;background:${C[k]}"></i><s></s></div>`}
+h+=`<small>הנדל–זליכה ווינטר מחוץ לגושים. הקו השחור = 61.</small></div><div class="card"><table><tr><th>מפלגה</th><th>קולות</th><th>%</th><th>מנדטים</th></tr>`;
+let line=false;for(const p of d.parties){if(!line&&p.pct<3.25){line=true;h+=`<tr class="th"><td colspan="4">אחוז החסימה 3.25% (${f(d.threshold_votes)} קולות)</td></tr>`}
+h+=`<tr class="${p.pct<3.25?'out':''}"><td>${p.name}</td><td class="n">${f(p.votes)}</td><td class="n">${p.pct}</td><td class="n"><b>${p.seats}</b></td></tr>`}
+h+=`<tr class="out"><td>כל שאר הרשימות</td><td class="n">${f(d.others)}</td><td></td><td></td></tr></table></div>
+<div class="card"><small>מקור הנתונים: <a href="${d.source}">${d.source_label}</a>. אתר ועדת הבחירות הרשמי (<a href="https://votes26.bechirot.gov.il/nationalresults?lang=he">votes26.bechirot.gov.il</a>) חוסם משיכה אוטומטית, לכן הנתונים מגיעים מאתר שמציג את נתוני הוועדה. הסכמי עודפים: <a href="https://www.ynet.co.il/news/elections2026/article/hjextlj2gl">ynet</a>. נבדק לאחרונה: ${d.fetched}. הדף מתרענן כל 5 דקות.</small></div>`;
+document.getElementById('app').innerHTML=h}catch(e){document.getElementById('app').textContent='שגיאה בטעינה, מנסה שוב בעוד 5 דקות'}}
+load();setInterval(load,300000);
+</script></body></html>
