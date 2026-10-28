@@ -56,6 +56,7 @@ def main():
     d['eligible']=7331981  # CEC official figure (verified on votes26.bechirot.gov.il)
     d['pct_counted']=round(100*d['counted']/d['eligible'],2)
     d['fetched']=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=2))).strftime('%d.%m.%Y %H:%M')
+    json.dump({'checked':d['fetched'],'asof':d['asof'],'counted':d['counted']},open('status.json','w'),ensure_ascii=False)
     old={}
     try: old=json.load(open('data.json'))
     except: pass

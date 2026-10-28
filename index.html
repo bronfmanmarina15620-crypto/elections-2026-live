@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ספירת הקולות 2026 – חי</title><style>
 body{font-family:Arial,sans-serif;margin:0;background:#f4f6fa;color:#1a1a2e;text-align:right}
 header{background:#1d3557;color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px}
@@ -13,8 +13,13 @@ td.n{text-align:left;direction:ltr}.th td{border-top:3px dashed #e63946;color:#e
 <script>
 const B={c:'הקואליציה (ליכוד, ש״ס, יהדות התורה, עוצמה יהודית, הציונות הדתית)',e:'גוש איזנקוט (ישר!, ביחד, ישראל ביתנו, הדמוקרטים)',a:'מפלגות ערביות (המשותפת, רע״ם)'};
 const C={c:'#1d4ed8',e:'#16a34a',a:'#9333ea'};const f=n=>n.toLocaleString('he-IL');
-async function load(){try{const d=await (await fetch('data.json?t='+Date.now())).json();
-let h=`<div class="card warn">⚠️ <b>הערכה מספירה חלקית.</b> המנדטים מחושבים אצלי בשיטת בדר־עופר עם 5 הסכמי העודפים שנחתמו, מתוך הקולות שנספרו עד עכשיו. התוצאה הרשמית רק מוועדת הבחירות (עד 4.11).</div>
+const R='bronfmanmarina15620-crypto/elections-2026-live';
+async function get(f){const u=['https://api.github.com/repos/'+R+'/contents/'+f+'?ref=main&t='+Date.now(),'https://raw.githubusercontent.com/'+R+'/main/'+f+'?t='+Date.now(),f+'?t='+Date.now()];
+for(let i=0;i<u.length;i++){try{const r=await fetch(u[i],{cache:'no-store',headers:i==0?{Accept:'application/vnd.github.raw'}:{}});if(r.ok)return await r.json()}catch(e){}}throw 1}
+let next=0;setInterval(()=>{const s=Math.max(0,Math.round((next-Date.now())/1000));const e=document.getElementById('cd');if(e)e.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0')},1000);
+async function load(){next=Date.now()+300000;try{const d=await get('data.json');let st={};try{st=await get('status.json')}catch(e){}const ck=(st.checked||d.fetched).split(' ')[1];
+let h0=`<div class="card" style="background:#1d3557;color:#fff;font-size:17px"><div>🟢 נבדק לאחרונה: <b>${ck}</b></div><div>🗳️ עדכון אחרון של ועדת הבחירות: <b>${d.asof.split(', ')[1]||d.asof}</b></div><div style="font-size:13px;opacity:.85;margin-top:4px">ועדת הבחירות מעדכנת בקצב שלה – אם המספרים לא זזים, זה כי עוד לא פורסם עדכון חדש.</div><div style="margin-top:4px">⏱️ הבדיקה הבאה בדף בעוד: <b id="cd">5:00</b></div></div>`;
+let h=h0+`<div class="card warn">⚠️ <b>הערכה מספירה חלקית.</b> המנדטים מחושבים אצלי בשיטת בדר־עופר עם 5 הסכמי העודפים שנחתמו, מתוך הקולות שנספרו עד עכשיו. התוצאה הרשמית רק מוועדת הבחירות (עד 4.11).</div>
 <div class="card g"><div>קולות שנספרו<b>${f(d.counted)}</b></div><div>בעלי זכות בחירה<b>${f(d.eligible)}</b></div>
 <div>נספרו מתוך בעלי זכות בחירה<b>${d.pct_counted}%</b></div><div>עדכון במקור<b>${d.asof}</b></div></div><div class="card"><b>גושים מול 61</b>`;
 for(const k of 'cea'){const s=d.blocs[k];h+=`<div><small>${B[k]}</small> – <b>${s}</b>${s>=61?' ✅':''}</div><div class="bar"><i style="width:${s/120*100}%;background:${C[k]}"></i><s></s></div>`}
