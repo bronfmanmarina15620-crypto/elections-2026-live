@@ -1,37 +1,37 @@
 {
- "asof": "28 באוק׳, 23:33",
- "counted": 5126759,
- "valid": 5104108,
- "others": 49670,
+ "asof": "29 באוק׳, 01:26",
+ "counted": 5147946,
+ "valid": 5125195,
+ "others": 49836,
  "parties": [
   {
    "name": "הליכוד",
    "id": "likud",
-   "votes": 1055840,
-   "pct": 20.69,
+   "votes": 1059246,
+   "pct": 20.67,
    "seats": 26,
    "bloc": "c"
   },
   {
    "name": "ישר (איזנקוט)",
    "id": "yashar",
-   "votes": 826516,
-   "pct": 16.19,
+   "votes": 830231,
+   "pct": 16.2,
    "seats": 21,
    "bloc": "e"
   },
   {
    "name": "הרשימה המשותפת (חד״ש–תע״ל–בל״ד)",
    "id": "joint",
-   "votes": 469132,
-   "pct": 9.19,
+   "votes": 471292,
+   "pct": 9.2,
    "seats": 12,
    "bloc": "a"
   },
   {
    "name": "ביחד (בנט-לפיד)",
    "id": "beyachad",
-   "votes": 460478,
+   "votes": 462446,
    "pct": 9.02,
    "seats": 12,
    "bloc": "e"
@@ -39,7 +39,7 @@
   {
    "name": "הדמוקרטים",
    "id": "dem",
-   "votes": 332322,
+   "votes": 333800,
    "pct": 6.51,
    "seats": 8,
    "bloc": "e"
@@ -47,15 +47,15 @@
   {
    "name": "רע״ם",
    "id": "raam",
-   "votes": 307106,
-   "pct": 6.02,
+   "votes": 310620,
+   "pct": 6.06,
    "seats": 7,
    "bloc": "a"
   },
   {
    "name": "ישראל ביתנו",
    "id": "yb",
-   "votes": 303242,
+   "votes": 304385,
    "pct": 5.94,
    "seats": 7,
    "bloc": "e"
@@ -63,39 +63,39 @@
   {
    "name": "יהדות התורה",
    "id": "utj",
-   "votes": 289329,
-   "pct": 5.67,
+   "votes": 290010,
+   "pct": 5.66,
    "seats": 7,
    "bloc": "c"
   },
   {
    "name": "עוצמה יהודית",
    "id": "otzma",
-   "votes": 282846,
-   "pct": 5.54,
+   "votes": 283577,
+   "pct": 5.53,
    "seats": 7,
    "bloc": "c"
   },
   {
    "name": "ש״ס",
    "id": "shas",
-   "votes": 270949,
-   "pct": 5.31,
+   "votes": 271682,
+   "pct": 5.3,
    "seats": 7,
    "bloc": "c"
   },
   {
    "name": "הציונות הדתית–זהות",
    "id": "rz",
-   "votes": 240529,
-   "pct": 4.71,
+   "votes": 241123,
+   "pct": 4.7,
    "seats": 6,
    "bloc": "c"
   },
   {
    "name": "המילואימניקים־הכלכלית (הנדל־זליכה)",
    "id": "hendel",
-   "votes": 134255,
+   "votes": 134751,
    "pct": 2.63,
    "seats": 0,
    "bloc": "o"
@@ -103,7 +103,7 @@
   {
    "name": "עמך ישראל (וינטר)",
    "id": "winter",
-   "votes": 81894,
+   "votes": 82196,
    "pct": 1.6,
    "seats": 0,
    "bloc": "o"
@@ -112,7 +112,7 @@
  "source": "https://thestateofisrael.com/he/election-2026/results",
  "source_label": "thestateofisrael.com (מציג את נתוני ועדת הבחירות)",
  "official_error": "official site returned 202 (AWS WAF challenge)",
- "threshold_votes": 165884,
+ "threshold_votes": 166569,
  "blocs": {
   "c": 53,
   "e": 48,
@@ -120,6 +120,6 @@
   "o": 0
  },
  "eligible": 7331981,
- "pct_counted": 69.92,
- "fetched": "29.10.2026 00:06"
+ "pct_counted": 70.21,
+ "fetched": "29.10.2026 02:02"
 }
