@@ -111,7 +111,7 @@
  ],
  "source": "https://thestateofisrael.com/he/election-2026/results",
  "source_label": "thestateofisrael.com (מציג את נתוני ועדת הבחירות)",
- "official_error": "official page loaded but no parser",
+ "official_error": "official site returned 202 (AWS WAF challenge)",
  "threshold_votes": 184947,
  "blocs": {
   "c": 53,
@@ -121,5 +121,5 @@
  },
  "eligible": 7331981,
  "pct_counted": 77.97,
- "fetched": "04.11.2026 06:09"
+ "fetched": "04.11.2026 06:17"
 }
